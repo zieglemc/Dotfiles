@@ -1,0 +1,198 @@
+function mz-length {
+    if [ $# -eq 0 ]; then
+        echo "Calculate the length of a vector"
+        return 1
+    fi
+    if [ $# -eq 1 ]; then
+        echo -e "$1" | awk '{printf "%f", sqrt( ($1)^2 + ($2)^2 + ($3)^2 )}'
+    else
+        echo -e "$1\t$2" | awk '{printf "%f", sqrt( ($1-$4)^2 + ($2-$5)^2 + ($3-$6)^2 )}'
+    fi
+}
+
+function mz-CoG {
+    if [ $# -eq 0 ]; then
+        echo "Calculate the center of gravity of a vector"
+        return 1
+    fi
+    echo -e "$@" | awk '{printf "%f\t%f\t%f", ($1+$4)/2, ($2+$5)/2, ($3+$6)/2 }'
+}
+
+function mz-getVector {
+    if [ $# -eq 0 ]; then
+        echo "Determine vector between two points"
+        return 1
+    fi
+    echo -e "$1\t$2" | awk '{printf "%f\t%f\t%f", ($1-$4), ($2-$5), ($3-$6)}'
+}
+
+function mz-scalarprod {
+    if [ $# -eq 0 ]; then
+        echo "Scalar product of two vectors"
+        return 1
+    fi
+    if [ $# -eq 2 ]; then
+        echo -e "$1\t$2" | awk '{printf "%f",(($4*$1) + ($5*$2) + ($6*$3))}'
+    else
+        echo -e "$1\t$2\t$3\t$4" | awk '{printf "%f",(($4-$1)*($10-$7) + ($5-$2)*($11-$8) + ($6-$3)*($12-$9))}'
+    fi
+}
+
+function mz-angle {
+    if [ $# -eq 0 ]; then
+        echo "Determine angle between two vectors"
+        return 1
+    fi
+    local sp=$(scalarprod "$1" "$2" "$3" "$4")
+    local l1=$(length "$1" "$2")
+    local l2=$(length "$3" "$4")
+    echo -e "$sp\t$l1\t$l2" | awk 'function acos(x) { return atan2(sqrt(1-x*x), x) }; {printf "%f", acos($1/$2/$3)*180/atan2(0, -1) }'
+}
+
+
+function vv() {
+    /usr/local/bin/vv "$@" 1>/dev/null 2>/dev/null
+}
+
+function ddump() {
+    dcmdump +C "$1" | less -r
+}
+
+function s() {
+    if [ $# -eq 0 ]; then
+        echo "Missing filename"
+        return 1
+    fi
+    fname=""
+    while [ "$1" ]; do   # combine all "inputs" if there are spaces within the path
+        fname="$fname $1"
+        shift
+    done
+
+    ext="${fname##*.}"
+    fname=$(echo "$fname" | sed -e 's/^[ \t]*//') # remove leadin white space
+
+    if [ ! -f "$fname" ]; then
+        echo "$fname: This file does not exist!"
+        return 1
+    fi
+
+    case "$ext" in
+        pdf)  okular "$fname";;
+        raw)  imagej "$fname";;
+        jpg)  gpicview "$fname";;
+        png)  gpicview "$fname";;
+        gif)  eyesight "$fname";;
+        svg)  inkscape "$fname";;
+        nrrd) vv "$fname";;
+        mha)  vv "$fname";;
+        html) firefox "$fname";;
+        dcm) ddump "$fname";;
+        tiff) gpicview "$fname";;
+        *) less "$fname";;
+    esac
+}
+
+function calc_func(){
+    res=$(echo "$@" | sed 's/[eE]+*/\*10\^/g' | sed 's/ibas\*10\^/ibase/g' | bc -l)
+    echo "${*} = $res"
+    set +f
+}
+
+function ..(){
+    DIRHIST+=("$PWD")
+    up="../"
+    num=${1:-1}
+    for (( i=1; i<num; i++)); do
+        up="$up../"
+    done
+    "$up"
+}
+
+function mycd_func(){
+    DIRHIST+=("$PWD")
+    if [[ $1 =~ ^-[0-9]+$ ]]; then
+        histitem=$((${1/-/}+1))
+        if [[ "$histitem" -lt "${#DIRHIST[@]}" ]]; then
+            builtin cd "${DIRHIST[${#DIRHIST[@]}-$histitem]}"
+        else
+            echo "Not enugh directories in history!"
+            unset 'DIRHIST[${#DIRHIST[@]}-1]'
+        fi
+    elif [[ $1 == .. ]]; then
+        .. "$2"
+    elif [[ $1 == "" ]]; then
+        builtin cd $HOME
+    else
+        builtin cd "$@"
+    fi
+}
+
+function extract() {
+    if [ $# -eq 0 ]; then
+        echo "Extract archive with the appropriate program"
+        return 1
+    fi
+    if [ -f "$1" ] ; then
+        case $1 in
+            *.tar.bz2)   tar xvjf "$1"    ;;
+            *.tar.gz)    tar xvzf "$1"    ;;
+            *.tar.xz)    tar xvJf "$1"    ;;
+            *.bz2)       bunzip2 "$1"     ;;
+            *.rar)       unrar x "$1"       ;;
+            *.gz)        gunzip "$1"      ;;
+            *.tar)       tar xvf "$1"     ;;
+            *.tbz2)      tar xvjf "$1"    ;;
+            *.tgz)       tar xvzf "$1"    ;;
+            *.zip)       unzip "$1"       ;;
+            *.Z)         uncompress "$1"  ;;
+            *.7z)        7za x "$1"        ;;
+            *)           echo "don't know how to extract '$1'..." ;;
+        esac
+    else
+        echo "'$1' is not a valid file!"
+    fi
+}
+
+function pinnacle() {
+    if [ -z ${1+x} ]; then
+        login=zieglemc
+    else
+        login=$1
+    fi
+
+    ssh -X "${login}@141.67.133.149"
+}
+
+function dirhist() {
+    if [ -z "$1" ]; then
+        min=${#DIRHIST[@]}
+    else
+        if [[ "${#DIRHIST[@]}" -gt "$1" ]]; then
+            min=$1
+        else
+            min=${#DIRHIST[@]}
+        fi
+    fi
+
+    for (( i=0; i<min;i++)) ; do
+        echo -e "$((i+1)).\t${DIRHIST[${#DIRHIST[@]}-$i-1]}"
+    done
+
+}
+
+function wttr() {
+    local request="wttr.in/${1:-Erlangen}"
+    [ "$COLUMNS" -lt 125 ] && request+='?n'
+    curl -H "Accept-Language: ${LANG%_*}" --compressed "$request"
+}
+
+function reload() {
+    if [ -n "$BASH" ]; then
+        echo "Reloading .bashrc"
+        source ~/.bashrc
+    elif [ -n "$ZSH_VERSION" ]; then
+        echo "Reloading .zshrc"
+        source ~/.zshrc
+    fi
+}

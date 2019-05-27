@@ -1,0 +1,71 @@
+[global_config]
+  enabled_plugins = CustomCommandsMenu, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  suppress_multiple_term_dialog = True
+  title_font = Saab 7
+  title_hide_sizetext = True
+[keybindings]
+  copy = <Primary>c
+  go_down = <Primary>Down
+  go_left = <Primary>Left
+  go_right = <Primary>Right
+  go_up = <Primary>Up
+  help = <Primary>F1
+  next_tab = <Shift>Right
+  paste = <Primary>v
+  prev_tab = <Shift>Left
+  split_horiz = <Primary><Shift>o
+  split_vert = <Primary><Shift>e
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+  [[tester]]
+    [[[child0]]]
+      order = 0
+      parent = ""
+      position = 0:0
+      size = 1276, 951
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 565
+      type = VPaned
+    [[[child3]]]
+      order = 1
+      parent = child1
+      position = 638
+      type = HPaned
+    [[[terminal2]]]
+      order = 0
+      parent = child1
+      profile = default
+      type = Terminal
+    [[[terminal4]]]
+      order = 0
+      parent = child3
+      profile = default
+      type = Terminal
+    [[[terminal5]]]
+      command = top -d 2
+      order = 1
+      parent = child3
+      profile = default
+      type = Terminal
+[plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.8
+    background_image = None
+    background_type = transparent
+    font = Monospace 9
+    icon_bell = False
+    scroll_on_output = False
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    use_system_font = False

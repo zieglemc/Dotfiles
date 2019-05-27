@@ -1,0 +1,63 @@
+[global_config]
+  enabled_plugins = CustomCommandsMenu, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+[keybindings]
+  go_up = <Primary>Up
+  next_tab = <Primary>Tab
+  previous_tab = <Primary><Shift>Tab
+  split_horiz = <Primary><Shift>h
+  go_down = <Primary>Down
+  split_vert = <Primary><Shift>v
+  go_right = <Primary>Right
+  go_left = <Primary>Left
+  copy = <Primary>c
+  paste = <Primary>v
+[profiles]
+  [[default]]
+    background_darkness = 0.52
+    background_image = None
+    icon_bell = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+[layouts]
+  [[default]]
+    [[[child1]]]
+      profile = default
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+  [[tester]]
+    [[[child0]]]
+      position = 0:0
+      type = Window
+      order = 0
+      parent = ""
+      size = 1276, 951
+    [[[child1]]]
+      position = 565
+      type = VPaned
+      order = 0
+      parent = child0
+    [[[child3]]]
+      position = 638
+      type = HPaned
+      order = 1
+      parent = child1
+    [[[terminal2]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child1
+    [[[terminal5]]]
+      profile = default
+      command = top -d 2
+      type = Terminal
+      order = 1
+      parent = child3
+    [[[terminal4]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child3
+[plugins]

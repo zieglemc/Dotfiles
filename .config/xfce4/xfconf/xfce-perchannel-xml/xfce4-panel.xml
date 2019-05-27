@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="configver" type="empty"/>
+  <property name="panels" type="empty">
+    <property name="panel-1" type="empty">
+      <property name="position" type="empty"/>
+      <property name="length" type="empty"/>
+      <property name="position-locked" type="empty"/>
+      <property name="size" type="empty"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="19"/>
+        <value type="int" value="1"/>
+        <value type="int" value="8"/>
+        <value type="int" value="7"/>
+        <value type="int" value="3"/>
+        <value type="int" value="15"/>
+        <value type="int" value="4"/>
+        <value type="int" value="6"/>
+        <value type="int" value="17"/>
+        <value type="int" value="20"/>
+        <value type="int" value="5"/>
+        <value type="int" value="2"/>
+      </property>
+      <property name="background-style" type="uint" value="1"/>
+      <property name="background-color" type="array">
+        <value type="uint" value="8231"/>
+        <value type="uint" value="7624"/>
+        <value type="uint" value="7624"/>
+        <value type="uint" value="65535"/>
+      </property>
+      <property name="background-alpha" type="uint" value="100"/>
+      <property name="enter-opacity" type="uint" value="100"/>
+    </property>
+  </property>
+  <property name="plugins" type="empty">
+    <property name="plugin-2" type="empty"/>
+    <property name="plugin-3" type="empty"/>
+    <property name="plugin-15" type="empty">
+      <property name="expand" type="empty"/>
+      <property name="style" type="empty"/>
+    </property>
+    <property name="plugin-4" type="empty">
+      <property name="rows" type="empty"/>
+    </property>
+    <property name="plugin-5" type="empty">
+      <property name="mode" type="empty"/>
+      <property name="timezone" type="empty"/>
+    </property>
+    <property name="plugin-6" type="empty">
+      <property name="names-visible" type="array">
+        <value type="string" value="thunar"/>
+        <value type="string" value="vlc"/>
+        <value type="string" value="drop-down terminal"/>
+        <value type="string" value="hexchat"/>
+        <value type="string" value="zieglemc@st-190-082:~/src/bin"/>
+        <value type="string" value="xfce terminal"/>
+        <value type="string" value="zieglemc@st-190-011:~/test/rotateimage"/>
+        <value type="string" value="xfce4-power-manager"/>
+      </property>
+    </property>
+    <property name="plugin-17" type="empty"/>
+    <property name="plugin-19" type="empty"/>
+    <property name="plugin-20" type="empty"/>
+    <property name="plugin-1" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="14670403441.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-7" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="14670404073.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-8" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="14670403962.desktop"/>
+      </property>
+    </property>
+  </property>
+</channel>

@@ -1,0 +1,14 @@
+alias ll='ls -lh --color=auto'
+alias la='ls -lha --color=auto'
+alias rm='rm -i'
+alias em='emacs -nw'
+alias ec='emacsclient -c'
+alias xelatex='xelatex --shell-escape'
+alias 12stein='ssh -X zieglemc@10.0.0.2'
+alias 24stein='ssh -X zieglemc@10.0.0.1'
+alias calc='set -f; calc_func'
+alias nrrdinfo='unu head'
+alias myconky='/usr/bin/conky -c /home/zieglemc/.conky/BlackPearlConky/conkyrc0 --daemon'
+alias cd=mycd_func
+alias less='less -r'
+alias dotconf="/usr/bin/git --git-dir=$HOME/.dotfileconf/ --work-tree=$HOME"

@@ -84,9 +84,10 @@ local themes = {
    "rainbow",         -- 8
    "steamburn",       -- 9
    "vertex",          -- 10
+   "zieglemc",        -- 11
 }
 
-local chosen_theme = themes[6]
+local chosen_theme = themes[11]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "urxvtc"
@@ -255,7 +256,7 @@ root.buttons(my_table.join(
 globalkeys = my_table.join(
    -- Take a screenshot
    -- https://github.com/lcpz/dots/blob/master/bin/screenshot
-   awful.key({ altkey }, "p", function() os.execute("screenshot") end,
+   awful.key({ modkey }, "p", function() os.execute("screenshot") end,
       {description = "take a screenshot", group = "hotkeys"}),
 
    -- X screen locker
@@ -378,10 +379,10 @@ globalkeys = my_table.join(
    awful.key({ modkey, "Shift"   }, "q", awesome.quit,
       {description = "quit awesome", group = "awesome"}),
 
-   awful.key({ altkey, "Shift"   }, "l",     function () awful.tag.incmwfact( 0.05)          end,
-      {description = "increase master width factor", group = "layout"}),
-   awful.key({ altkey, "Shift"   }, "h",     function () awful.tag.incmwfact(-0.05)          end,
-      {description = "decrease master width factor", group = "layout"}),
+   -- awful.key({ altkey, "Shift"   }, "l",     function () awful.tag.incmwfact( 0.05)          end,
+   --    {description = "increase master width factor", group = "layout"}),
+   -- awful.key({ altkey, "Shift"   }, "h",     function () awful.tag.incmwfact(-0.05)          end,
+   --    {description = "decrease master width factor", group = "layout"}),
    awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
       {description = "increase the number of master clients", group = "layout"}),
    awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
@@ -411,12 +412,12 @@ globalkeys = my_table.join(
       {description = "dropdown application", group = "launcher"}),
 
    -- Widgets popups
-   awful.key({ altkey, }, "c", function () if beautiful.cal then beautiful.cal.show(7) end end,
-         {description = "show calendar", group = "widgets"}),
-   awful.key({ altkey, }, "h", function () if beautiful.fs then beautiful.fs.show(7) end end,
-         {description = "show filesystem", group = "widgets"}),
-   awful.key({ altkey, }, "w", function () if beautiful.weather then beautiful.weather.show(7) end end,
-         {description = "show weather", group = "widgets"}),
+   -- awful.key({ altkey, }, "c", function () if beautiful.cal then beautiful.cal.show(7) end end,
+   --       {description = "show calendar", group = "widgets"}),
+   -- awful.key({ altkey, }, "h", function () if beautiful.fs then beautiful.fs.show(7) end end,
+   --       {description = "show filesystem", group = "widgets"}),
+   -- awful.key({ altkey, }, "w", function () if beautiful.weather then beautiful.weather.show(7) end end,
+   --       {description = "show weather", group = "widgets"}),
 
    -- Brightness
    awful.key({ }, "XF86MonBrightnessUp", function () os.execute("xbacklight -inc 10") end,

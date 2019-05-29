@@ -54,7 +54,7 @@ URxvt.depth: 32
 URxvt.background: rgba:1400/1c00/2100/d100
 URxvt.cursorColor: #afbfbf
 URxvt.transparent: true
-URxvt.shading: 30
+URxvt.shading: 20
 
 !! Common Keybinds for Navigations
 URxvt.keysym.Shift-Up: command:\033]720;1\007

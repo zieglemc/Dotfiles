@@ -1,0 +1,9 @@
+[Unit]
+Description=Deamon for urxvt
+Documentation=man:urxvt(1)
+
+[Service]
+ExecStart=/usr/bin/urxvtd -o -q
+
+[Install]
+WantedBy=default.target

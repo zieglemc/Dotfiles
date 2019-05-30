@@ -10,11 +10,11 @@ setopt prompt_subst
     if [[ $UID -ne 0 ]]; then # normal user
         PR_USER='%F{blue}%n%f'
         PR_USER_OP='%F{blue}%#%f'
-        PR_PROMPT='%f➤ %f'
+        PR_PROMPT='%f> %f'
     else # root
         PR_USER='%F{red}%n%f'
         PR_USER_OP='%F{red}%#%f'
-        PR_PROMPT='%F{red}➤ %f'
+        PR_PROMPT='%F{red}> %f'
     fi
 
     # Check if we are on SSH or not

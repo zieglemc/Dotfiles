@@ -679,8 +679,8 @@ awful.rules.rules = {
      properties = { titlebars_enabled = true } },
 
    -- Set Firefox to always map on the first tag on screen 1.
-   { rule = { class = "Firefox" },
-     properties = { screen = 1, tag = awful.util.tagnames[1] } },
+   --{ rule = { class = "Firefox" },
+   --  properties = { screen = 1, tag = awful.util.tagnames[1] } },
 
    { rule = { class = "Gimp", role = "gimp-image-window" },
      properties = { maximized = true } },
@@ -695,10 +695,12 @@ awful.rules.rules = {
             "Steam",
             "Chromium",
             "Thunderbird",
+            "okular",
         },
     }, properties = {titlebars_enabled = false} },
 
-
+   { rule = { class = "okular"},
+     properties = {opacity = 1, maximized = false, floating = false} },
 --     -- Titlebars ON (explicitly)
 --     -- Titlebars of these clients will be shown regardless of the theme setting
 --     { rule_any = {

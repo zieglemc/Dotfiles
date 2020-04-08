@@ -1,5 +1,6 @@
-alias ll='ls -lh --color=auto'
-alias la='ls -lha --color=auto'
+alias ls='ls --color=always'
+alias ll='ls -lh'
+alias la='ls -lha'
 alias rm='rm -i'
 alias em='emacs -nw'
 alias ec='emacsclient -c'

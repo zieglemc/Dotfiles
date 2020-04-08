@@ -106,7 +106,7 @@ function ..(){
     for (( i=1; i<num; i++)); do
         up="$up../"
     done
-    "$up"
+    builtin cd "$up"
 }
 
 function mycd_func(){

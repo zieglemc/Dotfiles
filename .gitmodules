@@ -1,0 +1,11 @@
+[submodule ".oh-my-zsh"]
+	path = .oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
+
+[submodule ".config/awesome/freedesktop"]
+           path = .config/awesome/freedesktop
+           url = https://github.com/lcpz/awesome-freedesktop/
+
+[submodule ".config/awesome/lain"]
+           path = .config/awesome/lain
+           url = https://github.com/lcpz/lain

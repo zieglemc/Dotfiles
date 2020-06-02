@@ -11,17 +11,18 @@
         <property name="startup-notify" type="empty"/>
       </property>
       <property name="&lt;Primary&gt;&lt;Alt&gt;Delete" type="empty"/>
-      <property name="&lt;Control&gt;&lt;Alt&gt;Escape" type="empty"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;l" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;t" type="empty"/>
       <property name="XF86Display" type="empty"/>
       <property name="&lt;Super&gt;p" type="empty"/>
       <property name="&lt;Primary&gt;Escape" type="empty"/>
-      <property name="XF86LogOff" type="empty"/>
-      <property name="&lt;Control&gt;&lt;Alt&gt;L" type="empty"/>
-      <property name="Print" type="empty"/>
-      <property name="&lt;Alt&gt;Print" type="empty"/>
       <property name="XF86WWW" type="empty"/>
       <property name="XF86Mail" type="empty"/>
+      <property name="Print" type="empty"/>
+      <property name="&lt;Control&gt;&lt;Alt&gt;Escape" type="empty"/>
+      <property name="XF86LogOff" type="empty"/>
+      <property name="&lt;Control&gt;&lt;Alt&gt;L" type="empty"/>
+      <property name="&lt;Alt&gt;Print" type="empty"/>
       <property name="XF86Calendar" type="empty"/>
       <property name="XF86Memo" type="empty"/>
       <property name="XF86Terminal" type="empty"/>
@@ -33,43 +34,23 @@
       <property name="XF86Calculator" type="empty"/>
     </property>
     <property name="custom" type="empty">
-      <property name="XF86Explorer" type="empty"/>
-      <property name="&lt;Alt&gt;F2" type="empty">
-        <property name="startup-notify" type="empty"/>
+      <property name="&lt;Primary&gt;Escape" type="string" value="xfdesktop --menu"/>
+      <property name="XF86Display" type="string" value="xfce4-display-settings --minimal"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;l" type="string" value="xflock4"/>
+      <property name="&lt;Alt&gt;F3" type="string" value="xfce4-appfinder">
+        <property name="startup-notify" type="bool" value="true"/>
       </property>
-      <property name="&lt;Control&gt;&lt;Alt&gt;L" type="empty"/>
-      <property name="&lt;Primary&gt;Escape" type="empty"/>
-      <property name="XF86LogOff" type="empty"/>
-      <property name="&lt;Alt&gt;Print" type="empty"/>
-      <property name="XF86Terminal" type="empty"/>
-      <property name="&lt;Alt&gt;F3" type="empty">
-        <property name="startup-notify" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;Delete" type="string" value="xflock4"/>
+      <property name="&lt;Alt&gt;F2" type="string" value="xfce4-appfinder --collapsed">
+        <property name="startup-notify" type="bool" value="true"/>
       </property>
-      <property name="&lt;Alt&gt;F1" type="empty"/>
-      <property name="XF86AudioNext" type="empty"/>
-      <property name="XF86AudioPrev" type="empty"/>
-      <property name="XF86AudioMedia" type="empty"/>
-      <property name="XF86Memo" type="empty"/>
-      <property name="&lt;Primary&gt;&lt;Alt&gt;Delete" type="empty"/>
-      <property name="&lt;Control&gt;&lt;Alt&gt;Escape" type="empty"/>
-      <property name="XF86Calculator" type="empty"/>
-      <property name="Print" type="empty"/>
-      <property name="&lt;Primary&gt;&lt;Alt&gt;l" type="empty"/>
-      <property name="XF86AudioPlay" type="empty"/>
-      <property name="XF86Mail" type="empty"/>
-      <property name="XF86Display" type="empty"/>
-      <property name="&lt;Super&gt;p" type="empty"/>
-      <property name="XF86WWW" type="empty"/>
-      <property name="XF86Calendar" type="empty"/>
-      <property name="override" type="empty"/>
-      <property name="&lt;Primary&gt;&lt;Alt&gt;e" type="string" value="Thunar"/>
-      <property name="&lt;Primary&gt;&lt;Alt&gt;c" type="string" value="firefox"/>
-      <property name="&lt;Primary&gt;&lt;Alt&gt;t" type="string" value="xfce4-terminal --drop-down"/>
-      <property name="&lt;Shift&gt;&lt;Alt&gt;t" type="string" value="terminator"/>
-      <property name="Super_L" type="string" value="xfce4-popup-whiskermenu"/>
-      <property name="&lt;Primary&gt;Alt_L" type="string" value="xflock4"/>
-      <property name="&lt;Primary&gt;&lt;Alt&gt;i" type="string" value="emacsclient -c"/>
-      <property name="&lt;Primary&gt;&lt;Alt&gt;s" type="string" value="slicer"/>
+      <property name="&lt;Alt&gt;F1" type="string" value="xfce4-popup-applicationsmenu"/>
+      <property name="XF86Mail" type="string" value="exo-open --launch MailReader"/>
+      <property name="Print" type="string" value="xfce4-screenshooter"/>
+      <property name="XF86WWW" type="string" value="exo-open --launch WebBrowser"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;t" type="string" value="exo-open --launch TerminalEmulator"/>
+      <property name="&lt;Super&gt;p" type="string" value="xfce4-display-settings --minimal"/>
+      <property name="override" type="bool" value="true"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
@@ -193,5 +174,7 @@
       <property name="&lt;Alt&gt;Up" type="string" value="maximize_window_key"/>
     </property>
   </property>
-  <property name="providers" type="empty"/>
+  <property name="providers" type="array">
+    <value type="string" value="commands"/>
+  </property>
 </channel>

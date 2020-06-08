@@ -111,3 +111,18 @@ source "$HOME/.config/zsh/zsh_aliases"
 source "$HOME/.config/zsh/zsh_exports"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Configuring the zsh-syntax-hihglighting
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+
+[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh ] && source  /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh > /dev/null
+
+zmodload zsh/nearcolor
+
+ZSH_HIGHLIGHT_STYLES[command]='fg=#01B430,bold'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=#01B430'
+ZSH_HIGHLIGHT_STYLES[function]='fg=#01B430,underline'
+ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=white,bold'
+ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=blue,bold'
+ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=yellow,bold'
+ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=green,bold'
